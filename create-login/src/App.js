@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom"
+import { Route, Link } from "react-router-dom"
 import './App.css';
 
 import LoginForm from "./components/LoginForm"
@@ -10,13 +10,17 @@ function App() {
     <div className="App">
       <header>
         <nav>
-          <Link>Login</Link>
-          <Link>Secured Page</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/friends">Secured Page</Link>
         </nav>
       </header>
       <section>
-        <LoginForm />
-        <FriendsList />
+        <Route path="/login">
+          <LoginForm />
+        </Route>
+        <Route path="/friends">
+          <FriendsList />
+        </Route>
       </section>
     </div>
   );
