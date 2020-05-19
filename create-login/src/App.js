@@ -1,9 +1,10 @@
-import React from 'react';
-import { Route, Link } from "react-router-dom"
-import './App.css';
+import React from "react";
+import { Switch, Route, Link } from "react-router-dom";
+import "./App.css";
 
-import LoginForm from "./components/LoginForm"
-import FriendsList from './components/FriendsList';
+import LoginForm from "./components/LoginForm";
+import FriendsList from "./components/FriendsList";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -11,16 +12,16 @@ function App() {
       <header>
         <nav>
           <Link to="/login">Login</Link>
-          <Link to="/friends">Secured Page</Link>
+          <Link to="/protected">Secured Page</Link>
         </nav>
       </header>
       <section>
-        <Route path="/login">
-          <LoginForm />
-        </Route>
-        <Route path="/friends">
-          <FriendsList />
-        </Route>
+        <Switch>
+          <Route path="/login" component={LoginForm} />
+          <PrivateRoute exact path="/protected" component={FriendsList}>
+            <FriendsList />
+          </PrivateRoute>
+        </Switch>
       </section>
     </div>
   );

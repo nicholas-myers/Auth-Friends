@@ -20,7 +20,7 @@ export default function FriendsList() {
       });
   };
   return (
-    <Route path="/friends">
+    <Route path="/protected">
         <div>
           {friends.map((friend) => {
             return (

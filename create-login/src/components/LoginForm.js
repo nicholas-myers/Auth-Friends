@@ -28,7 +28,7 @@ export default function LoginForm() {
       .then((res) => {
         // console.log(res.data);
         localStorage.setItem("token", res.data.payload);
-        history.push("/api/friends")
+        history.push("/protected")
         setIsLoading(false)
       })
       .catch((err) => {
