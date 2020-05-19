@@ -24,11 +24,11 @@ export default function LoginForm() {
     event.preventDefault();
     setIsLoading(true)
     axiosWithAuth()
-      .post("http://localhost:5000/api/login", loginInputs)
+      .post("/api/login", loginInputs)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         localStorage.setItem("token", res.data.payload);
-        history.push("/")
+        history.push("/api/friends")
         setIsLoading(false)
       })
       .catch((err) => {
