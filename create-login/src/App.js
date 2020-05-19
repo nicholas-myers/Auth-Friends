@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom"
 import './App.css';
 
+import LoginForm from "./components/LoginForm"
+
 function App() {
   return (
     <div className="App">
@@ -13,13 +15,7 @@ function App() {
         </nav>
       </header>
       <section>
-        <form>
-          <label>Username:</label>
-          <input />
-          <label>Password:</label>
-          <input />
-          <button>LOG IN</button>
-        </form>
+        <LoginForm />
       </section>
     </div>
   );
