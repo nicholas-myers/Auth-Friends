@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios"
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { useHistory } from "react-router-dom";
 
 const initialFormInputs = {
   username: "",
@@ -7,8 +8,10 @@ const initialFormInputs = {
 };
 
 export default function LoginForm() {
+    const history = useHistory()
+
   const [loginInputs, setLoginInputs] = useState(initialFormInputs);
-    const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const changeLogin = (event) => {
     setLoginInputs({
@@ -18,33 +21,39 @@ export default function LoginForm() {
   };
 
   const submitLogin = (event) => {
-      event.preventDefault()
-      axios.get("")
-      .then(res => {
-          console.log(res)
-        localStorage.setItem(loginInputs)
+    event.preventDefault();
+    setIsLoading(true)
+    axiosWithAuth()
+      .post("http://localhost:5000/api/login", loginInputs)
+      .then((res) => {
+        console.log(res.data);
+        localStorage.setItem("token", res.data.payload);
+        history.push("/")
+        setIsLoading(false)
       })
-      .catch(err => {
-          console.log(err)
-      })
-      
-  }
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
-    <form onSubmit={submitLogin}>
-      <label htmlFor="username">Username:</label>
-      <input
-        name="username"
-        value={loginInputs.username}
-        onChange={changeLogin}
-      />
-      <label htmlFor="password">Password:</label>
-      <input
-        name="password"
-        value={loginInputs.password}
-        onChange={changeLogin}
-      />
-      <button>LOG IN</button>
-    </form>
+    <div>
+        <form onSubmit={submitLogin}>
+          <label htmlFor="username">Username:</label>
+          <input
+            name="username"
+            value={loginInputs.username}
+            onChange={changeLogin}
+          />
+          <label htmlFor="password">Password:</label>
+          <input
+            name="password"
+            value={loginInputs.password}
+            onChange={changeLogin}
+          />
+          <button>LOG IN</button>
+        </form>
+        {isLoading && <p>checking your info....</p>}
+    </div>
   );
 }

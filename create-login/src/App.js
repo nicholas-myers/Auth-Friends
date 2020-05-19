@@ -9,7 +9,6 @@ function App() {
     <div className="App">
       <header>
         <nav>
-          <Link>Home Page</Link>
           <Link>Login</Link>
           <Link>Secured Page</Link>
         </nav>
