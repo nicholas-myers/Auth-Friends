@@ -17,10 +17,10 @@ function App() {
       </header>
       <section>
         <Switch>
+          <PrivateRoute exact path="/protected" component={FriendsList} />
+
           <Route path="/login" component={LoginForm} />
-          <PrivateRoute exact path="/protected" component={FriendsList}>
-            <FriendsList />
-          </PrivateRoute>
+          <Route component={LoginForm} />
         </Switch>
       </section>
     </div>
