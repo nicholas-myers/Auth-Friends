@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { Route } from "react-router-dom";
+// import { Route } from "react-router-dom";
 
 export default function FriendsList() {
   const [friends, setFriends] = useState([]);
@@ -21,6 +21,15 @@ export default function FriendsList() {
   };
   return (
     <div>
+      <form>
+        <label>Name:</label>
+        <input />
+        <label>Age:</label>
+        <input />
+        <label>Email:</label>
+        <input />
+        <button>Add Friend</button>
+      </form>
       {friends.map((friend) => {
         return (
           <div key={friend.id}>
