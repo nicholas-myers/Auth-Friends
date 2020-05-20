@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 // import { Route } from "react-router-dom";
 
+import NewFriendForm from "./NewFriendForm"
+
 export default function FriendsList() {
   const [friends, setFriends] = useState([]);
   useEffect(() => {
     getFriends();
-  }, []);
+  }, [friends]);
 
   const getFriends = () => {
     axiosWithAuth()
@@ -21,15 +23,7 @@ export default function FriendsList() {
   };
   return (
     <div>
-      <form>
-        <label>Name:</label>
-        <input />
-        <label>Age:</label>
-        <input />
-        <label>Email:</label>
-        <input />
-        <button>Add Friend</button>
-      </form>
+      <NewFriendForm />
       {friends.map((friend) => {
         return (
           <div key={friend.id}>
