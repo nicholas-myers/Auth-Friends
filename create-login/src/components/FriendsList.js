@@ -20,6 +20,12 @@ const FriendCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+  padding: 1%;
+  margin: 3% 0;
+  button {
+    width: 50%;
+  }
 `;
 
 export default function FriendsList() {
