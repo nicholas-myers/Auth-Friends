@@ -8,6 +8,8 @@ const Navbar = styled.header`
   justify-content: center;
   background-color: lightblue;
   padding: 1%;
+  border-bottom: 1px solid black;
+  margin-bottom: 3%;
 `;
 
 export default function Header() {

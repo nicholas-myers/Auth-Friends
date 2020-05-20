@@ -1,6 +1,26 @@
 * {
+  box-sizing: border-box;
   text-align: center;
   max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: skyblue;
+  width: 100%;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 2rem;
 }
 
 header {
@@ -13,4 +33,41 @@ nav {
   width: 50%;
   display: flex;
   justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  background-color: dodgerblue;
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+a:hover {
+  background-color: skyblue;
+  color: black;
+  border: 1px solid black;
+}
+
+label {
+  font-size: 2rem;
+}
+
+input {
+  margin: 0 3%;
+  font-size: 2rem;
+}
+
+button {
+  background-color: lightblue;
+  font-size: 2rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+button:hover {
+  background-color: dodgerblue;
+  color: white;
 }

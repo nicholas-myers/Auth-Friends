@@ -33,10 +33,10 @@ export default function NewFriendForm() {
       axiosWithAuth()
       .post("/api/friends", newFriend)
       .then(res => {
-          console.log(res)
+        //   console.log(res)
       })
       .catch(err => {
-          console.log(err)
+        //   console.log(err)
       })
   }
 
